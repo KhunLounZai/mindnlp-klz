@@ -24,7 +24,7 @@ from mindspore.common.initializer import initializer, Normal, TruncatedNormal
 from mindnlp.core import nn, ops
 from mindnlp.core.nn import Parameter
 from mindnlp.core.nn import functional as F
-from ...activations import ACT2FN
+from ....common.activations import ACT2FN
 from ...modeling_outputs import BaseModelOutput, BaseModelOutputWithPooling
 from ...modeling_utils import PreTrainedModel
 from ....utils import (
@@ -1679,7 +1679,7 @@ class BlipForQuestionAnswering(BlipPreTrainedModel):
         question_attention_mask = ops.ones(*question_embeds.shape[:-1], dtype=mindspore.int64)
 
         bos_ids = ops.full(
-            (question_embeds.shape[0], 1), fill_value=self.decoder_start_token_id
+            (question_embeds.shape[0], 1), fill_value=self.decoder_start_token_id, dtype=mindspore.int64
         )
 
         outputs = self.text_decoder.generate(

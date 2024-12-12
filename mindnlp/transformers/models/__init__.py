@@ -138,6 +138,7 @@ from . import (
     marian,
     markuplm,
     m2m_100,
+    maskformer,
     mask2former,
     mbart,
     mbart50,
@@ -151,6 +152,7 @@ from . import (
     mobilenet_v1,
     mobilenet_v2,
     mobilevit,
+    mobilevitv2,
     mpnet,
     mpt,
     mllama,
@@ -380,6 +382,7 @@ from .m2m_100 import *
 from .mamba import *
 from .marian import *
 from .markuplm import *
+from .maskformer import *
 from .mask2former import *
 from .mbart import *
 from .mbart50 import *
@@ -393,6 +396,7 @@ from .mobilebert import *
 from .mobilenet_v1 import *
 from .mobilenet_v2 import *
 from .mobilevit import *
+from .mobilevitv2 import *
 from .mpnet import *
 from .mllama import *
 from .mluke import *
@@ -622,6 +626,7 @@ __all__.extend(m2m_100.__all__)
 __all__.extend(mamba.__all__)
 __all__.extend(marian.__all__)
 __all__.extend(markuplm.__all__)
+__all__.extend(maskformer.__all__)
 __all__.extend(mask2former.__all__)
 __all__.extend(mbart.__all__)
 __all__.extend(mbart50.__all__)
@@ -637,6 +642,7 @@ __all__.extend(mobilebert.__all__)
 __all__.extend(mobilenet_v1.__all__)
 __all__.extend(mobilenet_v2.__all__)
 __all__.extend(mobilevit.__all__)
+__all__.extend(mobilevitv2.__all__)
 __all__.extend(mpnet.__all__)
 __all__.extend(mpt.__all__)
 __all__.extend(mt5.__all__)

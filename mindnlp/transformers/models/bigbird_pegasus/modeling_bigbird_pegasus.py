@@ -23,7 +23,7 @@ import mindspore
 from mindnlp.core import nn, ops
 from mindnlp.core.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 
-from ...activations import ACT2FN
+from ....common.activations import ACT2FN
 from ...modeling_attn_mask_utils import _prepare_4d_attention_mask, _prepare_4d_causal_attention_mask
 from ...modeling_outputs import (
     BaseModelOutput,
@@ -450,13 +450,13 @@ class BigBirdPegasusBlockSparseAttention(nn.Module):
             [
                 to_mask[:, :, :, : 3 * to_block_size],
                 to_mask[:, :, :, -to_block_size:],
-                ops.ones([bsz, 1, 1, n_rand_blocks * to_block_size], dtype=to_mask.dtype),
+                ops.ones((bsz, 1, 1, n_rand_blocks * to_block_size), dtype=to_mask.dtype),
             ],
             dim=3,
         )
         second_rand_pad = ops.cat(
             [
-                ops.ones([bsz, n_heads, from_block_size, 4 * to_block_size], dtype=rand_mask.dtype),
+                ops.ones((bsz, n_heads, from_block_size, 4 * to_block_size), dtype=rand_mask.dtype),
                 rand_mask[:, :, 0],
             ],
             dim=3,
@@ -584,13 +584,13 @@ class BigBirdPegasusBlockSparseAttention(nn.Module):
             [
                 to_mask[:, :, :, :to_block_size],
                 to_mask[:, :, :, -3 * to_block_size :],
-                ops.ones([bsz, 1, 1, n_rand_blocks * to_block_size], dtype=to_mask.dtype),
+                ops.ones((bsz, 1, 1, n_rand_blocks * to_block_size), dtype=to_mask.dtype),
             ],
             dim=3,
         )
         second_last_rand_pad = ops.cat(
             [
-                ops.ones([bsz, n_heads, from_block_size, 4 * to_block_size], dtype=rand_mask.dtype),
+                ops.ones((bsz, n_heads, from_block_size, 4 * to_block_size), dtype=rand_mask.dtype),
                 rand_mask[:, :, -1],
             ],
             dim=3,
